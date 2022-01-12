@@ -1,4 +1,5 @@
 import ArticleList from "../component/article";
+import Banner from "../component/banner";
 import Foot from "../component/footer";
 import Heading from "../component/header"
 import NavigationBar from "../component/nav"
@@ -13,6 +14,7 @@ const HomePage = {
             ${NavigationBar.render()}
             ${SearchBar.render()}
           </div>
+          ${Banner.render()}
           ${ArticleList.render()}
           ${Foot.render()}
         </div>

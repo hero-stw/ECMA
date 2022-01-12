@@ -1,4 +1,5 @@
 import Navigo from "navigo";
+import DetailNews from "./pages/detail";
 import HomePage from "./pages/home";
 
 const router = new Navigo("/", { linksSelector: "a" });
@@ -23,5 +24,8 @@ router.on({
     "/job": () => {
         print("Tuyen dung");
     },
+    "/news/:id": (value) => {
+        print(DetailNews.render(value.data.id))
+    }
 });
 router.resolve();

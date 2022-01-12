@@ -18,6 +18,9 @@ const NavigationBar = {
                 <li>
                     <a href="/job" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Tuyển dụng</a>
                 </li>
+                <li>
+                    <a href="/news" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Tin tức</a>
+                </li>
             </ul>
           </div>
         
