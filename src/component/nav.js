@@ -9,9 +9,9 @@ const NavigationBar = {
                 <li>
                     <a href="/recruit" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Tuyển sinh</a>
                 </li>
-                <li>
-                    <a href="/course" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Chương trình đào tạo</a>
-                </li>
+<!--                <li>-->
+<!--                    <a href="/course" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Chương trình đào tạo</a>-->
+<!--                </li>-->
                 <li>
                     <a href="/student" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Góc sinh viên</a>
                 </li>
@@ -20,6 +20,9 @@ const NavigationBar = {
                 </li>
                 <li>
                     <a href="/news" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Tin tức</a>
+                </li>
+                <li>
+                    <a href="/admin" class="block px-4 py-3 hover:bg-indigo-500 hover:text-white">Dashboard</a>
                 </li>
             </ul>
           </div>

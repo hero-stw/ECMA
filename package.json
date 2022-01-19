@@ -13,6 +13,7 @@
     "vite": "^2.7.2"
   },
   "dependencies": {
+    "@moesaid/cleopatra": "^1.1.1",
     "navigo": "^8.11.1"
   }
 }

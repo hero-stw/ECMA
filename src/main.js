@@ -1,6 +1,9 @@
 import Navigo from "navigo";
+import SignIn from "./component/auth/signin";
 import DetailNews from "./pages/detail";
 import HomePage from "./pages/home";
+import SignUp from "./component/auth/signup";
+import DashboardPage from "./admin/dashboard";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -26,6 +29,15 @@ router.on({
     },
     "/news/:id": (value) => {
         print(DetailNews.render(value.data.id))
-    }
+    },
+    "/signin": (value) => {
+        print(SignIn.render());
+    },
+    "/signup": (value) => {
+        print(SignUp.render());
+    },
+    "/admin": (value) => {
+        print(DashboardPage.render());
+    },
 });
 router.resolve();
