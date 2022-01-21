@@ -7,13 +7,13 @@ import DashboardPage from "./admin/dashboard";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
-const print = (content) => {
-    document.getElementById("app").innerHTML = content;
+const print = async (content, id) => {
+    document.getElementById("app").innerHTML = await content.render(id);
 };
 
 router.on({
     "/": () => {
-        print(HomePage.render());
+        print(HomePage);
     },
     "/recruit": () => {
         print("Tuyen Sinh");
@@ -28,16 +28,17 @@ router.on({
         print("Tuyen dung");
     },
     "/news/:id": (value) => {
-        print(DetailNews.render(value.data.id))
+        print(DetailNews,value.data.id);
     },
-    "/signin": (value) => {
-        print(SignIn.render());
+    "/signin": () => {
+        print(SignIn);
     },
-    "/signup": (value) => {
-        print(SignUp.render());
+    "/signup": () => {
+        print(SignUp);
     },
-    "/admin": (value) => {
-        print(DashboardPage.render());
+    "/admin": () => {
+        print(DashboardPage);
     },
+
 });
 router.resolve();
