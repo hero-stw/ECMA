@@ -1,11 +1,10 @@
-import data from "../data"
 const DetailNews = {
     render(id) {
         return fetch(`https://61e7a8b3e32cd90017acbbe6.mockapi.io/posts/${id}`)
             .then((response) => response.json())
             .then((data) => `
                 <h1>${data.title}</h1>
-                <img src="${data.img}" />    
+                <img src="${data.img}" alt=""/>    
                 <p>${data.desc}</p>
             `);
 
