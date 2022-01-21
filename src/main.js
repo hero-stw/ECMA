@@ -28,7 +28,7 @@ router.on({
         print("Tuyen dung");
     },
     "/news/:id": (value) => {
-        print(DetailNews,value.data.id);
+        print(DetailNews, value.data.id);
     },
     "/signin": () => {
         print(SignIn);

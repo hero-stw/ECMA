@@ -6,7 +6,11 @@ const DetailNews = {
                 <h1>${data.title}</h1>
                 <img src="${data.img}" alt=""/>    
                 <p>${data.desc}</p>
-            `);
+            `)
+            .catch((error) => {
+                console.log("Lỗi kết nối: "+ error);
+            })
+            ;
 
         // const result = data.find((post) => post.id === id);
     },
