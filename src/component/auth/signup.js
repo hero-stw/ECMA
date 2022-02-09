@@ -1,3 +1,5 @@
+import {signup} from "../../../api/users";
+
 const SignUp = {
     render() {
         return /*html*/ `
@@ -9,21 +11,21 @@ const SignUp = {
       
             <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Create a new account</h1>
       
-            <form class="mt-6" action="#" method="POST">
+            <form class="mt-6" action="#" method="POST" id="formSignUp">
               <div>
                 <label class="block text-gray-700">Email Address</label>
-                <input type="email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
+                <input type="email" name="email" id="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
               </div>
       
               <div class="mt-4">
                 <label class="block text-gray-700">Password</label>
-                <input type="password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                <input type="password" name="pass" id="pass" placeholder="Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
                       focus:bg-white focus:outline-none" required>
               </div>
       
                <div class="mt-4">
                 <label class="block text-gray-700">Confirm password</label>
-                <input type="password" name="" id="" placeholder="Confirm Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                <input type="password" name="cpass" id="cpass" placeholder="Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
                       focus:bg-white focus:outline-none" required>
               </div>
       
@@ -57,6 +59,18 @@ const SignUp = {
       </section>
         
         `
+    },
+    afterRender() {
+        const formSignUp = document.querySelector("#formSignUp");
+        formSignUp.addEventListener("submit", async (e)=> {
+            e.preventDefault();
+            const response = await signup( {
+                    email: document.querySelector("#email").value,
+                    password: document.querySelector("#pass").value
+            }
+            );
+            console.log(response);
+        })
     }
 }
 export default SignUp;

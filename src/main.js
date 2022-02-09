@@ -4,11 +4,13 @@ import DetailNews from "./pages/detail";
 import HomePage from "./pages/home";
 import SignUp from "./component/auth/signup";
 import DashboardPage from "./admin/dashboard";
+import AddNewsPage from "./admin/news/add";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
 const print = async (content, id) => {
     document.getElementById("app").innerHTML = await content.render(id);
+    if (content.afterRender) content.afterRender();
 };
 
 router.on({
@@ -38,6 +40,9 @@ router.on({
     },
     "/admin": () => {
         print(DashboardPage);
+    },
+    "/admin/news": () => {
+        print(AddNewsPage);
     },
 
 });

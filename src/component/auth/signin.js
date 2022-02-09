@@ -1,5 +1,7 @@
+import {signin} from "../../../api/users";
+
 const SignIn = {
-    render() {
+    async render() {
         return /*html*/ `
         <section class="flex flex-col md:flex-row h-screen items-center">
 
@@ -15,15 +17,15 @@ const SignIn = {
       
             <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
       
-            <form class="mt-6" action="#" method="POST">
+            <form class="mt-6" action="" method="POST" id="formSignin">
               <div>
                 <label class="block text-gray-700">Email Address</label>
-                <input type="email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
+                <input type="email" name="" id="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
               </div>
       
               <div class="mt-4">
                 <label class="block text-gray-700">Password</label>
-                <input type="password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                <input type="password" name="" id="pass" placeholder="Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
                       focus:bg-white focus:outline-none" required>
               </div>
       
@@ -57,6 +59,18 @@ const SignIn = {
       </section>
         
         `
-    }
+    },
+    afterRender() {
+        const formSignin = document.querySelector("#formSignin");
+        formSignin.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            // call api
+            const response = await signin({
+                email: document.querySelector("#email").value,
+                password: document.querySelector("#pass").value,
+            });
+            console.log(response);
+        });
+    },
 }
 export default SignIn;

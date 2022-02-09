@@ -7,7 +7,7 @@ import SearchBar from "../component/searchbox";
 import UserIcon from "../component/user";
 
 const HomePage = {
-  async  render() {
+  async render() {
         return /*html*/`
         <div style ="max-width: 1290px; margin: auto; ">
           ${Heading.render()}
@@ -20,7 +20,6 @@ const HomePage = {
           ${await  ArticleList.render()}
           ${Foot.render()}
         </div>
-        
         `
     }
 }
